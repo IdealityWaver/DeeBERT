@@ -1,11 +1,11 @@
 #!/bin/bash
 export CUDA_VISIBLE_DEVICES=0
 
-PATH_TO_DATA=/h/xinji/projects/GLUE
+PATH_TO_DATA=D:/123/Code/DeeBERT/GLUE
 
 MODEL_TYPE=bert  # bert or roberta
 MODEL_SIZE=base  # base or large
-DATASET=MRPC  # SST-2, MRPC, RTE, QNLI, QQP, or MNLI
+DATASET=RTE  # SST-2, MRPC, RTE, QNLI, QQP, or MNLI
 
 MODEL_NAME=${MODEL_TYPE}-${MODEL_SIZE}
 EPOCHS=10
@@ -36,3 +36,6 @@ python -um examples.run_highway_glue \
   --save_steps 0 \
   --overwrite_cache \
   --eval_after_first_stage
+
+
+# python -um examples.run_highway_glue --model_type bert  --model_name_or_path bert-base-uncased   --task_name RTE   --do_train   --do_eval   --do_lower_case   --data_dir D:\123\Code\DeeBERT\GLUE\RTE   --max_seq_length 128   --per_gpu_eval_batch_size=1   --per_gpu_train_batch_size=8   --learning_rate 2e-5   --num_train_epochs 10   --overwrite_output_dir   --seed 42   --output_dir D:\123\Code\DeeBERT\saved_models\bert-base\RTE\two_stage   --plot_data_dir D:\123\Code\DeeBERT\plotting\   --save_steps 0   --overwrite_cache   --eval_after_first_stage

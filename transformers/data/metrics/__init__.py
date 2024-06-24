@@ -20,13 +20,18 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-try:
-    from scipy.stats import pearsonr, spearmanr
-    from sklearn.metrics import matthews_corrcoef, f1_score
-    _has_sklearn = True
-except (AttributeError, ImportError) as e:
-    logger.warning("To use data.metrics please install scikit-learn. See https://scikit-learn.org/stable/index.html")
-    _has_sklearn = False
+from scipy.stats import pearsonr, spearmanr
+from sklearn.metrics import matthews_corrcoef, f1_score
+_has_sklearn = True
+
+# try:
+#     from scipy.stats import pearsonr, spearmanr
+#     from sklearn.metrics import matthews_corrcoef, f1_score
+#     _has_sklearn = True
+# except (AttributeError, ImportError) as e:
+#     logger.warning(e.msg)
+#     logger.warning("To use data.metrics please install scikit-learn. See https://scikit-learn.org/stable/index.html")
+#     _has_sklearn = False
 
 def is_sklearn_available():
     return _has_sklearn
